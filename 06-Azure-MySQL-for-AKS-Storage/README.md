@@ -35,7 +35,11 @@
 - **Settings -> Connection Security**
   - **Very Important**: Enable **Allow Access to Azure Services**
   - Update Firewall rules to allow from local desktop (Add current client IP Address)
-  - **SSL Settings**: Disabled  
+  - **SSL Settings**: Disabled  (old version)
+  - Click on **Save**
+- **Settings -> Server Parameters**
+  - Search for "ssl"
+  - Parameter: **require_secure_transport** -> OFF
   - Click on **Save**
 - It will take close to 15 minutes for changes to take place. 
 
@@ -69,7 +73,7 @@ kubectl apply -f kube-manifests/01-MySQL-externalName-Service.yml
 kubectl run -it --rm --image=mysql:5.7.22 --restart=Never mysql-client -- mysql -h <AZURE-MYSQ-DB-HOSTNAME> -u <USER_NAME> -p<PASSWORD>
 
 # Replace Host Name of Azure MySQL Database and Username and Password
-kubectl run -it --rm --image=mysql:5.7.22 --restart=Never mysql-client -- mysql -h akswebappdb.mysql.database.azure.com -u dbadmin@akswebappdb -pRedhat1449
+kubectl run -it --rm --image=mysql:8.4.0 --restart=Never mysql-client -- mysql -h akswebappdbwoc.mysql.database.azure.com -u dbadmin -pM3t4ll1c4
 
 mysql> show schemas;
 mysql> create database webappdb;

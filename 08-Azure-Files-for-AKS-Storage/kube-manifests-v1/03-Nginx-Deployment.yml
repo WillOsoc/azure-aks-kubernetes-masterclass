@@ -19,7 +19,7 @@ spec:
           image: stacksimplify/kube-nginxapp1:1.0.0
           imagePullPolicy: Always
           ports: 
-            - containerPort: 80         
+            - containerPort: 80
           volumeMounts:
             - name: my-azurefile-volume
               mountPath: "/usr/share/nginx/html/app1"

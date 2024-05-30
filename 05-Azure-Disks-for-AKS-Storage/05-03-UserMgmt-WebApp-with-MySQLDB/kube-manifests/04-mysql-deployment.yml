@@ -1,5 +1,5 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: mysql
 spec: 
@@ -13,7 +13,14 @@ spec:
     metadata: 
       labels: 
         app: mysql
-    spec: 
+    spec:
+      volumes: 
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: azure-managed-disk-pvc
+        - name: usermanagement-dbcreation-script
+          configMap:
+            name: usermanagement-dbcreation-script 
       containers:
         - name: mysql
           image: mysql:5.6
@@ -28,10 +35,3 @@ spec:
               mountPath: /var/lib/mysql    
             - name: usermanagement-dbcreation-script
               mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance                                            
-      volumes: 
-        - name: mysql-persistent-storage
-          persistentVolumeClaim:
-            claimName: azure-managed-disk-pvc
-        - name: usermanagement-dbcreation-script
-          configMap:
-            name: usermanagement-dbcreation-script

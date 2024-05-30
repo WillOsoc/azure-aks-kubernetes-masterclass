@@ -1,5 +1,5 @@
-apiVersion: apps/v1
 kind: Deployment 
+apiVersion: apps/v1
 metadata:
   name: usermgmt-webapp
   labels:
@@ -23,15 +23,15 @@ spec:
           image: stacksimplify/kube-usermgmt-webapp:1.0.0-MySQLDB
           imagePullPolicy: Always
           ports: 
-            - containerPort: 8080           
+            - containerPort: 8080
           env:
             - name: DB_HOSTNAME
-              value: "mysql"            
+              value: "mysql"
             - name: DB_PORT
-              value: "3306"            
+              value: "3306"
             - name: DB_NAME
-              value: "webappdb"            
+              value: "webappdb"
             - name: DB_USERNAME
-              value: "dbadmin@akswebappdb"            
+              value: "dbadmin"
             - name: DB_PASSWORD
-              value: "Redhat1449"            
+              value: "M3t4ll1c4"
