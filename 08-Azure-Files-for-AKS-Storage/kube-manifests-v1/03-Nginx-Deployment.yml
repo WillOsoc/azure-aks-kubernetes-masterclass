@@ -5,7 +5,7 @@ metadata:
   labels:
     app: azure-files-nginx-app
 spec:
-  replicas: 4
+  replicas: 3
   selector:
     matchLabels:
       app: azure-files-nginx-app
