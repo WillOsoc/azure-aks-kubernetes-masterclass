@@ -56,13 +56,13 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set controller.service.loadBalancerIP="REPLACE_STATIC_IP" 
 
 # Replace Static IP captured in Step-02 (without beta for NodeSelectors)
-helm install ingress-nginx ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
-    --set controller.replicaCount=2 \
-    --set controller.nodeSelector."kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.service.externalTrafficPolicy=Local \
-    --set controller.service.loadBalancerIP="52.154.156.139"     
+helm install ingress-nginx ingress-nginx/ingress-nginx 
+    --namespace ingress-basic 
+    --set controller.replicaCount=2 
+    --set controller.nodeSelector."kubernetes\.io/os"=linux 
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux 
+    --set controller.service.externalTrafficPolicy=Local 
+    --set controller.service.loadBalancerIP="52.224.4.246"     
 
 
 # List Services with labels
@@ -135,3 +135,7 @@ kubectl delete -f kube-manifests/
 Ingress Admission Webhooks
 With nginx-ingress-controller version 0.25+, the nginx ingress controller pod exposes an endpoint that will integrate with the validatingwebhookconfiguration Kubernetes feature to prevent bad ingress from being added to the cluster. This feature is enabled by default since 0.31.0.
 ```
+
+## C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\PowerShell\7\
+
+## "C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\PowerShell\7\;C:\Users\wilfer.osorio\helm-v3.15.1\windows-amd64;C:\Users\wilfer.osorio\AppData\Local\Programs\Git\bin;C:\Users\wilfer.osorio\.azure-kubectl"

@@ -19,5 +19,4 @@ spec:
           image: stacksimplify/kube-nginxapp1:1.0.0
           ports:
             - containerPort: 80
-
-   
+            
